@@ -1,0 +1,157 @@
+
+
+
+
+ <mat-sidenav-container fullscreen>
+  <mat-sidenav mode="side" #sidenav opened position="start">
+
+    <h1>BCCS</h1>
+
+    <a id="dashboard" style=" cursor: pointer; margin-top: 55px;">
+
+
+      <i class="fas fa-home    "    routerLink='/dashboard' style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 22px;">Dashboard</span>
+    </a>
+
+<a id="super-admin"  (click)="superadmin=!superadmin"  style="cursor: pointer;" >
+
+  <i class="fas fa-home    "style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 22px;">Super Admin</span><i [ngClass]="superadmin ? 'fas fa-angle-left	' : 'fas fa-angle-down	'" style="float:right; padding:15px 25px 0px 0px; font-size:18px"></i>
+
+</a>
+
+
+<div class="super-admin-content" >
+
+  <a  routerLink='/super-admin/staff'  >Staff</a>
+  <a   routerLink='/super-admin/branches'>Branches</a>
+  <a   routerLink='/super-admin/top-heads' >Top Heads</a>
+
+  <a    routerLink='/super-admin/agent-cardes' >Agent Cadres</a>
+  <a  routerLink='/super-admin/closing' >Closing</a>
+  <a   routerLink='/super-admin/content-management' >Content Management</a>
+  <a  routerLink='/super-admin/share-management'>Share Management</a>
+</div>
+
+
+<a id="gst"  (click)="gst=!gst" style="cursor: pointer;"  >
+
+  <i class="fas fa-home    "style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 22px;">GST</span><i [ngClass]="gst ? 'fas fa-angle-left	' : 'fas fa-angle-down	'" style="float:right; padding:15px 25px 0px 0px; font-size:18px"></i>
+
+</a>
+
+
+<div class="gst-content" >
+
+
+  <a    routerLink='/gst/account-statement' >Account Statement</a>
+
+  <a    routerLink='/gst/general-gst' >General Gst</a>
+  <a    routerLink='/gst/gst-deposite' >Gst Deposite</a>
+  <a    routerLink='/gst/memorandum-apply' >Memorandum Apply</a>
+  <a    routerLink='/gst/purchase' >Purchase </a>
+  <a    routerLink='/gst/report' >Report </a>
+  <a    routerLink='/gst/supplier' >Supplier </a>
+</div>
+
+<a id="mad"  (click)="mad=!mad"   style="cursor: pointer;">
+
+  <i class="fas fa-home    "style="font-size: 18px;"></i>&nbsp;&nbsp;<span style="font-size: 22px;">M.A.D</span><i [ngClass]="mad ? 'fas fa-angle-left	' : 'fas fa-angle-down	'" style="float:right; padding:15px 25px 0px 0px; font-size:18px"></i>
+
+</a>
+
+
+<div class="mad-content" >
+
+
+  <a    routerLink='/mad/agents' >Agents </a>
+
+  <a    routerLink='/mad/dealer' >Dealer </a>
+  <a    routerLink='/mad/dsa' >Dsa</a>
+  <a    routerLink='/mad/employees' >Employees </a>
+  <a    routerLink='/mad/member-insurance' >Member Insurance </a>
+  <a    routerLink='/mad/report' >Report </a>
+  <a    routerLink='/mad/members' >Members </a>
+
+</div>
+
+
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="height: 50px;
+    " color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <mat-form-field >
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker"
+        [formControl]="date1"
+        (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)"        
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+
+      <button mat-icon-button style="margin-left: 92%;margin-bottom: 7px;">
+        <mat-icon      data-toggle="tooltip" data-placement="bottom" title="Logout"
+                >account_circle</mat-icon>
+      </button> 
+    </mat-toolbar>
+    <div  class="main-content">
+
+      <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active"  routerLink='/dashboard/daily-dues'   id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
+            aria-selected="true">Daily Dues</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"   routerLink='/dashboard/weekly-dues'  id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+            aria-selected="false">Weekly Dues</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink='/dashboard/monthly-dues'    id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+            aria-selected="false">Monthly Dues</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"   routerLink='/dashboard/accounts-opened-today'   id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+            aria-selected="false">Accounts Opened Today</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/dashboard/cash-bank-report'   id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+            aria-selected="false">Cash Bank Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"   routerLink='/dashboard/insurance-due-list'  id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+            aria-selected="false">Insurance Due List</a>
+        </li>
+        
+      
+        <li class="nav-item">
+          <a class="nav-link"   routerLink='/dashboard/scheme'  id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+            aria-selected="false">Scheme</a>
+        </li>
+      </ul>
+      <router-outlet></router-outlet>
+      
+      
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
